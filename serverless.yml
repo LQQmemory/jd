@@ -57,7 +57,7 @@ inputs:
           name: dailyegg_carnivalcity
           cronExpression: "0 8 */3 * * * *"
           enable: true
-          argument: jd_daily_egg&jd_carnivalcity&jd_joy_park&jd_dj_fruit
+          argument: jd_carnivalcity&jd_joy_park&jd_dj_fruit&jd_daily_egg
     - timer: #东东超市 #十元街 #动物联萌 #翻翻乐 #京喜牧场 #京东到家水车收水滴 #京东到家鲜豆庄园收水滴
         parameters:
           name: superMarket_syj_zoo_bigwinner

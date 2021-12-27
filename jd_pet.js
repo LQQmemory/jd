@@ -177,8 +177,8 @@ async function energyCollect() {
   const response = await request(function_id);
   // console.log(`收取任务奖励好感度完成:${JSON.stringify(response)}`);
   if (response.resultCode === '0') {
-    message += `【第${response.result.medalNum + 1}块勋章完成进度】${response.result.medalPercent}%，还需收集${response.result.needCollectEnergy}好感\n`;
-    message += `【已获得勋章】${response.result.medalNum}块，还需收集${response.result.needCollectMedalNum}块即可兑换奖品“${$.petInfo.goodsInfo.goodsName}”\n`;
+    message += `【第${response.result.medalNum + 1}块勋章完成进度】${response.result.medalPercent}%，还需收集${response.result.needCollectEnergy}好感\n\n`;
+    message += `【已获得勋章】${response.result.medalNum}块，还需收集${response.result.needCollectMedalNum}块即可兑换奖品“${$.petInfo.goodsInfo.goodsName}”\n\n`;
   }
 }
 
@@ -271,16 +271,16 @@ async function masterHelpInit() {
         console.log("开始领取额外奖励");
         let getHelpAddedBonusResult = await request('getHelpAddedBonus');
         if (getHelpAddedBonusResult.resultCode === '0') {
-          message += `【额外奖励${getHelpAddedBonusResult.result.reward}领取】${getHelpAddedBonusResult.message}\n`;
+          message += `【额外奖励${getHelpAddedBonusResult.result.reward}领取】${getHelpAddedBonusResult.message}\n\n`;
         }
         console.log(`领取30g额外奖励结果：【${getHelpAddedBonusResult.message}】`);
       } else {
         console.log("已经领取过5好友助力额外奖励");
-        message += `【额外奖励】已领取\n`;
+        message += `【额外奖励】已领取\n\n`;
       }
     } else {
       console.log("助力好友未达到5个")
-      message += `【额外奖励】领取失败，原因：给您助力的人未达5个\n`;
+      message += `【额外奖励】领取失败，原因：给您助力的人未达5个\n\n`;
     }
     if (res.result.masterHelpPeoples && res.result.masterHelpPeoples.length > 0) {
       console.log('帮您助力的好友的名单开始')
@@ -292,7 +292,7 @@ async function masterHelpInit() {
           str += (item.nickName || "匿名用户") + '，';
         }
       })
-      message += `【助力您的好友】${str}\n`;
+      message += `【助力您的好友】${str}\n\n`;
     }
   }
 }
@@ -329,7 +329,7 @@ async function slaveHelp() {
     }
   }
   if (helpPeoples && helpPeoples.length > 0) {
-    message += `【您助力的好友】${helpPeoples.substr(0, helpPeoples.length - 1)}\n`;
+    message += `【您助力的好友】${helpPeoples.substr(0, helpPeoples.length - 1)}\n\n`;
   }
 }
 

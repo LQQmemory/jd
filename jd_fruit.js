@@ -88,13 +88,13 @@ async function jdFruit() {
       }
       console.log('当前种植', $.farmInfo.farmUserPro.name)
       console.log(`\n【已成功兑换水果】${$.farmInfo.farmUserPro.winTimes}次\n`);
-      message += `【已兑换水果】${$.farmInfo.farmUserPro.winTimes}次\n`;
+      message += `【已兑换水果】${$.farmInfo.farmUserPro.winTimes}次\n\n`;
       await masterHelpShare();//助力好友
       if ($.farmInfo.treeState === 2 || $.farmInfo.treeState === 3) {
         option['open-url'] = urlSchema;
         $.msg($.name, ``, `【京东账号${$.index}】${$.nickName || $.UserName}\n【提醒⏰】${$.farmInfo.farmUserPro.name}已可领取\n请去京东APP或微信小程序查看\n点击弹窗即达`, option);
         if ($.isNode()) {
-          await notify.sendNotify(`${$.name} - 账号${$.index} - ${$.nickName}水果已可领取`, `【京东账号${$.index}】${$.nickName || $.UserName}\n【提醒⏰】${$.farmInfo.farmUserPro.name}已可领取\n请去京东APP或微信小程序查看`);
+          await notify.sendNotify(`${$.name} - 账号${$.index} - ${$.nickName}水果已可领取`, `【京东账号${$.index}】${$.nickName || $.UserName}\n\n【提醒⏰】${$.farmInfo.farmUserPro.name}已可领取\n\n请去京东APP或微信小程序查看`);
         }
         return
       } else if ($.farmInfo.treeState === 1) {
@@ -246,13 +246,13 @@ async function predictionFruit() {
   await initForFarm();
   await taskInitForFarm();
   let waterEveryDayT = $.farmTask.totalWaterTaskInit.totalWaterTaskTimes;//今天到到目前为止，浇了多少次水
-  message += `【今日共浇水】${waterEveryDayT}次\n`;
-  message += `【剩余 水滴】${$.farmInfo.farmUserPro.totalEnergy}g💧\n`;
-  message += `【水果🍉进度】${(($.farmInfo.farmUserPro.treeEnergy / $.farmInfo.farmUserPro.treeTotalEnergy) * 100).toFixed(2)}%，已浇水${$.farmInfo.farmUserPro.treeEnergy / 10}次,还需${($.farmInfo.farmUserPro.treeTotalEnergy - $.farmInfo.farmUserPro.treeEnergy) / 10}次\n`
+  message += `【今日共浇水】${waterEveryDayT}次\n\n`;
+  message += `【剩余 水滴】${$.farmInfo.farmUserPro.totalEnergy}g💧\n\n`;
+  message += `【水果🍉进度】${(($.farmInfo.farmUserPro.treeEnergy / $.farmInfo.farmUserPro.treeTotalEnergy) * 100).toFixed(2)}%，已浇水${$.farmInfo.farmUserPro.treeEnergy / 10}次,还需${($.farmInfo.farmUserPro.treeTotalEnergy - $.farmInfo.farmUserPro.treeEnergy) / 10}次\n\n`
   if ($.farmInfo.toFlowTimes > ($.farmInfo.farmUserPro.treeEnergy / 10)) {
-    message += `【开花进度】再浇水${$.farmInfo.toFlowTimes - $.farmInfo.farmUserPro.treeEnergy / 10}次开花\n`
+    message += `【开花进度】再浇水${$.farmInfo.toFlowTimes - $.farmInfo.farmUserPro.treeEnergy / 10}次开花\n\n`
   } else if ($.farmInfo.toFruitTimes > ($.farmInfo.farmUserPro.treeEnergy / 10)) {
-    message += `【结果进度】再浇水${$.farmInfo.toFruitTimes - $.farmInfo.farmUserPro.treeEnergy / 10}次结果\n`
+    message += `【结果进度】再浇水${$.farmInfo.toFruitTimes - $.farmInfo.farmUserPro.treeEnergy / 10}次结果\n\n`
   }
   // 预测n天后水果课可兑换功能
   let waterTotalT = ($.farmInfo.farmUserPro.treeTotalEnergy - $.farmInfo.farmUserPro.treeEnergy - $.farmInfo.farmUserPro.totalEnergy) / 10;//一共还需浇多少次水
@@ -388,7 +388,7 @@ async function doTenWaterAgain() {
       await userMyCardForFarm('beanCard');
       console.log(`使用水滴换豆卡结果:${JSON.stringify($.userMyCardRes)}`);
       if ($.userMyCardRes.code === '0') {
-        message += `【水滴换豆卡】获得${$.userMyCardRes.beanCount}个京豆\n`;
+        message += `【水滴换豆卡】获得${$.userMyCardRes.beanCount}个京豆\n\n`;
         return
       }
     } else {
@@ -602,15 +602,15 @@ async function getExtraAward() {
         await masterGotFinishedTaskForFarm();
         if ($.masterGotFinished.code === '0') {
           console.log(`已成功领取好友助力奖励：【${$.masterGotFinished.amount}】g水`);
-          message += `【额外奖励】${$.masterGotFinished.amount}g水领取成功\n`;
+          message += `【额外奖励】${$.masterGotFinished.amount}g水领取成功\n\n`;
         }
       } else {
         console.log("已经领取过5好友助力额外奖励");
-        message += `【额外奖励】已被领取过\n`;
+        message += `【额外奖励】已被领取过\n\n`;
       }
     } else {
       console.log("助力好友未达到5个");
-      message += `【额外奖励】领取失败,原因：给您助力的人未达5个\n`;
+      message += `【额外奖励】领取失败,原因：给您助力的人未达5个\n\n`;
     }
     if ($.masterHelpResult.masterHelpPeoples && $.masterHelpResult.masterHelpPeoples.length > 0) {
       let str = '';
@@ -624,7 +624,7 @@ async function getExtraAward() {
         let time = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate() + ' ' + date.getHours() + ':' + date.getMinutes() + ':' + date.getMinutes();
         console.log(`\n京东昵称【${item.nickName || "匿名用户"}】 在 ${time} 给您助过力\n`);
       })
-      message += `【助力您的好友】${str}\n`;
+      message += `【助力您的好友】${str}\n\n`;
     }
     console.log('领取额外奖励水滴结束\n');
   }
@@ -645,16 +645,16 @@ async function getExtraAward2() {
           await masterGotFinishedTaskForFarm2()
           if ($.masterGotFinished2.code === '0') {
             console.log(`已成功领取${assistNum}个好友助力奖励：【${$.masterGotFinished2.amount}】g水`);
-            message += `【${assistNum}个好友额外奖励】${$.masterGotFinished2.amount}g水领取成功\n`;
+            message += `【${assistNum}个好友额外奖励】${$.masterGotFinished2.amount}g水领取成功\n\n`;
           }
         } else if (stageStaus == '3') {
           console.log(`已经领取过${assistNum}个好友助力额外奖励`);
-          message += `【${assistNum}个好友助力额外奖励】已被领取过\n`;
+          message += `【${assistNum}个好友助力额外奖励】已被领取过\n\n`;
         }
       }
     } else {
       console.log("助力好友少于2个");
-      message += `【额外奖励】领取失败,原因：给您助力的人少于2个\n`;
+      message += `【额外奖励】领取失败,原因：给您助力的人少于2个\n\n`;
     }
     if (Array.isArray(peopleHelps) && peopleHelps.length !== 0) {
       let str = '';
@@ -668,7 +668,7 @@ async function getExtraAward2() {
         let time = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate() + ' ' + date.getHours() + ':' + date.getMinutes() + ':' + date.getMinutes();
         console.log(`\n京东昵称【${item.nickName || "匿名用户"}】 在 ${time} 给您助过力\n`);
       })
-      message += `【助力您的好友】${str}\n`;
+      message += `【助力您的好友】${str}\n\n`;
     }
     console.log('领取额外奖励水滴结束\n');
   }
@@ -739,7 +739,7 @@ async function masterHelpShare() {
     // message += `【助力好友👬】获得${salveHelpAddWater}g💧\n`;
     console.log(`【助力好友👬】获得${salveHelpAddWater}g💧\n`);
   }
-  message += `【今日剩余助力👬】${remainTimes}次\n`;
+  message += `【今日剩余助力👬】${remainTimes}次\n\n`;
   console.log('助力好友结束，即将开始领取额外水滴奖励\n');
 }
 
