@@ -27,7 +27,7 @@ inputs:
           name: blueCoin_clublottery_carexchange_xtg_xtghelp
           cronExpression: "0 0 0 * * * *"
           enable: true
-          argument: jd_bean_sign&jd_blueCoin&jd_club_lottery&jd_car_exchange&jd_xtg&jd_xtg_help
+          argument: jd_bean_sign&jd_blueCoin&jd_club_lottery&jd_car_exchange
     - timer: #东东农场 #东东萌宠 #口袋书店 #京喜农场 #京东极速版签到 #京东直播 #美丽研究院 #金榜创造营 #明星小店
         parameters:
           name: fruit_pet_bookshop_jxnc_speedsign_family_goldcreator_starshop
@@ -57,7 +57,7 @@ inputs:
           name: dailyegg_carnivalcity
           cronExpression: "0 8 */3 * * * *"
           enable: true
-          argument: jd_carnivalcity&jd_joy_park&jd_dj_fruit&jd_daily_egg
+          argument: jd_joy_park&jd_dj_fruit&jd_daily_egg
     - timer: #东东超市 #十元街 #动物联萌 #翻翻乐 #京喜牧场 #京东到家水车收水滴 #京东到家鲜豆庄园收水滴
         parameters:
           name: superMarket_syj_zoo_bigwinner
