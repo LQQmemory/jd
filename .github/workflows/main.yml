@@ -17,7 +17,7 @@ jobs:
       run: |
         echo "========= 开始清空脚本 ========="
         shopt -s extglob
-        rm -rf !(function|activity|Surge|utils|docker|backup|icon|account.json|Loon|QuantumultX|README.md|serverless.yml|tencentscf.js|jd_half_redrain.js|jd_super_redrain.js|index.js|getJDCookie.js|jd_carnivalcity.js|jd_crazy_joy.js|jd_crazy_joy_bonus.js|jd_crazy_joy_coin.js|jd_joy_help.js|jd_mcxhd.js|jd_small_home.js|jd_star_shop.js|jd_xtg.js|jd_xtg_help.js|jd_zoo.js|jd_zooCollect.js)
+        rm -rf !(function|activity|Surge|utils|docker|backup|icon|account.json|Loon|QuantumultX|README.md|serverless.yml|tencentscf.js|jd_half_redrain.js|jd_super_redrain.js|index.js|getJDCookie.js|jd_carnivalcity.js|jd_crazy_joy.js|jd_crazy_joy_bonus.js|jd_crazy_joy_coin.js|jd_joy_help.js|jd_mcxhd.js|jd_small_home.js|jd_star_shop.js|jd_xtg.js|jd_xtg_help.js|jd_zoo.js|jd_zooCollect.js|jd_bean_sign.js|jd_joy_new.js)
         shopt -u extglob
         #echo "========= 开始下载小小的脚本及依赖 ========="
         #git clone -b jd_scripts https://github.com/Aaron-lv/sync.git ./Aaron

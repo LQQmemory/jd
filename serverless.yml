@@ -22,18 +22,18 @@ inputs:
           cronExpression: "0 20 0,20 * * * *"
           enable: true
           argument: jd_fanpai_sign&jd_angryKoi&jx_sign_xd&jd_jchsign&jd_ddworld&jd_dwapp&jd_jxsign&jd_shop_sign&jd_joy_reward&jd_syj&jd_speed_sign
-    - timer: #每日签到 #东东超市兑换奖品 #摇京豆 #京东汽车兑换 #家电星推官 #家电星推官好友互助
+    - timer: #每日签到 #东东超市兑换奖品 #摇京豆 #京东汽车兑换
         parameters:
           name: blueCoin_clublottery_carexchange_xtg_xtghelp
           cronExpression: "0 0 0 * * * *"
           enable: true
           argument: jd_bean_sign&jd_blueCoin&jd_club_lottery&jd_car_exchange
-    - timer: #东东农场 #东东萌宠 #口袋书店 #京喜农场 #京东极速版签到 #京东直播 #美丽研究院 #金榜创造营 #明星小店
+    - timer: #东东农场 #东东萌宠 #口袋书店 #京喜农场 #京东极速版签到 #京东直播 #美丽研究院 #金榜创造营
         parameters:
           name: fruit_pet_bookshop_jxnc_speedsign_family_goldcreator_starshop
           cronExpression: "0 5 6-18/6,8 * * * *"
           enable: true
-          argument: jd_fruit&jd_pet&jd_bookshop&jd_jxnc&jd_speed_sign&jd_live&jd_beauty&jd_gold_creator&jd_star_shop
+          argument: jd_fruit&jd_pet&jd_bookshop&jd_jxnc&jd_speed_sign&jd_live&jd_beauty&jd_gold_creator
     - timer: #宠汪汪喂食 #宠汪汪 #摇钱树 #京东种豆得豆 #京喜工厂 #东东工厂 #东东健康社区收集能量
         parameters:
           name: feedPets_joy_moneyTree_plantBean_dreamFactory_jdfactory_healthcollect
